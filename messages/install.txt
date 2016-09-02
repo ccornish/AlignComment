@@ -45,4 +45,3 @@ sublime.keymap file and editing the key combination.
 ]
 
 Chris Cornish, September 2016.
-
