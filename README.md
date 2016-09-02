@@ -23,7 +23,7 @@ all of a file.
 
 The column is configured by setting a parameter in a sublime-settings file. This can be global or
 per syntax, allowing for different values for different files. Space or tab indentations are supported.
-If no colunm value is set, then a default column value of 80 is used. The value can be entered as
+If no column value is set, then a default column value of 80 is used. The value can be entered as
 an integer number with support for text conversion built into the plug-in. If the value is invalid,
 then a warning message is displayed in the console. An example of setting is:
 
@@ -32,7 +32,7 @@ then a warning message is displayed in the console. An example of setting is:
 }
 
 The command uses a default key code of <CTRL + .>(adjacent to the comment toggle command key).
-The command can be added to the Main.sublime.menu if this has been customised usiing the following
+The command can be added to the Main.sublime.menu if this has been customised using the following
 entry - a suggestion is under the Edit -> Comment children
 
 { "command": "align_comment", "caption": "Align or Add In-line Comment" }
