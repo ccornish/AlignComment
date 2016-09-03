@@ -31,11 +31,9 @@ then a warning message is displayed in the console. An example of setting is:
   "comment_align_column": 85,
 }
 
-The command uses a default key code of <CTRL + .>(adjacent to the comment toggle command key).
-The command can be added to the Main.sublime.menu if this has been customised using the following
-entry - a suggestion is under the Edit -> Comment children
-
-{ "command": "align_comment", "caption": "Align or Add In-line Comment" }
+The command uses a default key code of <CTRL + .> (adjacent to the toggle comment command key).
+The command is added to the main menu under Edit -> Comment to appear after the toggle comment
+entries.
 
 The command can be changed by adding a new entry to the Preferences -> Key Bindings - User
 sublime.keymap file and editing the key combination.
