@@ -120,7 +120,7 @@ class AlignCommentCommand(sublime_plugin.TextCommand):
 			comment_data = comment_data[:-1]
 			if (region.end() != self.view.size() and
 					build_comment_data(self.view, region.end())[:-1] != comment_data):
-				# region spans languages, nothing we can do
+				# region comments are not the same, nothing we can do
 				continue
 
 			# If no line comments are defined for the language then exit
@@ -150,11 +150,12 @@ class AlignCommentCommand(sublime_plugin.TextCommand):
 
 				# For a line that has a comment on the start of the line, ignore
 				if self.starts_with_line_comment(self.view, comment_data, line_region, False):
-					# print("Starts with a comment, so ignore")
+					# print("Starts with a comment at column 0, so ignore")
 					continue
 
 				# For a line that starts with a comment
 				if self.starts_with_line_comment(self.view, comment_data, line_region, True):
+					# print("Starts with a comment")
 					start_pos = line_region.begin()
 					# Search first non-commented line after the current line until the end of the file
 					pos = line_region.end()
@@ -214,6 +215,7 @@ class AlignCommentCommand(sublime_plugin.TextCommand):
 				# Values returned are whether there is a comment and where in the line it is
 				(has_a_comment, pos) = self.has_a_line_comment(self.view, comment_data, line_region)
 				if has_a_comment:
+					# print("Line has a comment, so align")
 					line_start_tabs = 0
 					# print("Has text followed by a comment")
 					# Save pos location to give the location of the comment
@@ -299,6 +301,7 @@ class AlignCommentCommand(sublime_plugin.TextCommand):
 				# print("Single line that has no comment, so append to the end of the line")
 				# Trim any trailing spaces from the line end
 				remove_spaces = 0
+				# print("Single line so add comment to end of line")
 				# Save the current line end position - we will change this if we erase and characters
 				line_end_position = line_region.end()
 				start_pos = line_region.begin()
@@ -365,7 +368,7 @@ class AlignCommentCommand(sublime_plugin.TextCommand):
 							insert_comment = "\t" + ("\t" * add_tabs) + (" " * add_spaces) + inline_comment + " "
 					self.view.insert(edit, pos, insert_comment)
 				# Place cursor at the end of the line
-				self.view.run_command("moveTo", "eol")
+				self.view.run_command("move_to", {"to": "eol"})
 
 		# print("End of analysis")
 # comment_column
