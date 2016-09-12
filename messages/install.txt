@@ -9,7 +9,7 @@ This is a Sublime Text 3 plug-in to align in-line comments. The comment syntax i
 <language>-Comments.tmPreferences file for the language type.
 
 It does one of four things depending on the context:
-  1.  For a single line, tt creates new comments aligned to a configurable column and places the
+  1.  For a single line, it creates new comments aligned to a configurable column and places the
       cursor at the end of the line ready for text to be entered.
   2.  For multiple lines, it aligns comments to the same indentation as the following non-comment
       text for comments that are indented by more than 1 character indent
